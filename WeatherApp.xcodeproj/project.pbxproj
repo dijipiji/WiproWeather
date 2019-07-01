@@ -18,6 +18,10 @@
 		A5E13D1B22CA07CE00974179 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E13D1A22CA07CE00974179 /* Service.swift */; };
 		A5E13D1D22CA085200974179 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E13D1C22CA085200974179 /* Presenter.swift */; };
 		A5E13D1F22CA0FF700974179 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E13D1E22CA0FF700974179 /* Model.swift */; };
+		A5E13D2622CA4E6B00974179 /* clear.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E13D2322CA4E6B00974179 /* clear.png */; };
+		A5E13D2722CA4E6B00974179 /* clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E13D2422CA4E6B00974179 /* clouds.png */; };
+		A5E13D2822CA4E6B00974179 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E13D2522CA4E6B00974179 /* snow.png */; };
+		A5E13D2A22CA58DE00974179 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E13D2922CA58DE00974179 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		A5E13D1A22CA07CE00974179 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		A5E13D1C22CA085200974179 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		A5E13D1E22CA0FF700974179 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A5E13D2322CA4E6B00974179 /* clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clear.png; sourceTree = "<group>"; };
+		A5E13D2422CA4E6B00974179 /* clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds.png; sourceTree = "<group>"; };
+		A5E13D2522CA4E6B00974179 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
+		A5E13D2922CA58DE00974179 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,12 +115,14 @@
 			children = (
 				A5E13CE922CA009800974179 /* AppDelegate.swift */,
 				A5E13CEB22CA009800974179 /* ViewController.swift */,
+				A5E13D2922CA58DE00974179 /* UIColor+Extension.swift */,
 				A5E13D1A22CA07CE00974179 /* Service.swift */,
 				A5E13D1C22CA085200974179 /* Presenter.swift */,
 				A5E13D1E22CA0FF700974179 /* Model.swift */,
 				A5E13CED22CA009800974179 /* Main.storyboard */,
 				A5E13CF322CA009A00974179 /* Assets.xcassets */,
 				A5E13CF522CA009A00974179 /* LaunchScreen.storyboard */,
+				A5E13D2222CA4E6B00974179 /* images */,
 				A5E13CF822CA009A00974179 /* Info.plist */,
 				A5E13CF022CA009800974179 /* WeatherApp.xcdatamodeld */,
 			);
@@ -136,6 +146,16 @@
 			);
 			path = WeatherAppUITests;
 			sourceTree = "<group>";
+		};
+		A5E13D2222CA4E6B00974179 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				A5E13D2322CA4E6B00974179 /* clear.png */,
+				A5E13D2422CA4E6B00974179 /* clouds.png */,
+				A5E13D2522CA4E6B00974179 /* snow.png */,
+			);
+			path = images;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -243,7 +263,10 @@
 			files = (
 				A5E13CF722CA009A00974179 /* LaunchScreen.storyboard in Resources */,
 				A5E13CF422CA009A00974179 /* Assets.xcassets in Resources */,
+				A5E13D2822CA4E6B00974179 /* snow.png in Resources */,
 				A5E13CEF22CA009800974179 /* Main.storyboard in Resources */,
+				A5E13D2722CA4E6B00974179 /* clouds.png in Resources */,
+				A5E13D2622CA4E6B00974179 /* clear.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E13D2A22CA58DE00974179 /* UIColor+Extension.swift in Sources */,
 				A5E13CF222CA009800974179 /* WeatherApp.xcdatamodeld in Sources */,
 				A5E13D1B22CA07CE00974179 /* Service.swift in Sources */,
 				A5E13CEC22CA009800974179 /* ViewController.swift in Sources */,

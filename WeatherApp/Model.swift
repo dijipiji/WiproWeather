@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 
-typealias DataItem = (date:String?, kelvin:CGFloat?, weather:(type:String, description:String)?)
 typealias PrettifiedDate = (day:String, weekday:String, month:String)
+typealias DataItem = (date:PrettifiedDate?, celsius:CGFloat?, weather:(type:String, description:String)?)
+
 
 class Model: NSObject {
     
@@ -40,14 +41,21 @@ class Model: NSObject {
                     print("weatherData=\(weatherData)")
                     */
                     let kelvin:CGFloat? = mainData["temp"] as? CGFloat
-
-                    return DataItem(date:timeStamp,
-                                    kelvin:kelvin,
+                    var celsius:CGFloat? = nil
+                    
+                    if kelvin != nil {
+                        celsius = round(kelvin! - 273.15)
+                    }
+                    
+                    let date:Date = fetchDateFromString(YYYY_MM_DD:timeStamp)
+                    let prettifiedDate:PrettifiedDate = getPrettifiedDate(date)
+                    
+                    return DataItem(date:prettifiedDate,
+                                    celsius:celsius,
                                     weather:(type:weatherData["main"], weatherData["description"]) as! (type: String, description: String))
                 }
                 
-                return items
-                
+                return filterItems(items)
             }
         }
         catch let error {
@@ -56,6 +64,32 @@ class Model: NSObject {
         }
         
         return nil
+    }
+    
+    
+    /**
+     * We get a set of timestamped weather data for each day, lets just filter out one result for each day
+     */
+    func filterItems(_ items:[DataItem]?) -> [DataItem]? {
+        
+        guard let items:[DataItem] = items else {
+            return nil
+        }
+        
+        var lastDay:String? = nil
+        var filteredItems:[DataItem] = []
+        
+        for item:DataItem in items {
+            
+            if item.date?.day != lastDay {
+                filteredItems.append(item)
+            }
+            lastDay = item.date?.day
+            
+        }
+        
+        return filteredItems
+        
     }
 
     

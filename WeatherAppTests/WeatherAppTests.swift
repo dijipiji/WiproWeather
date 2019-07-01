@@ -62,10 +62,9 @@ class WeatherAppTests: XCTestCase {
         
             for item:DataItem in unwrappedItems {
                 print("item.date=\(String(describing: item.date))")
-                print("item.kelvin=\(String(describing: item.kelvin))")
+                print("item.celsius=\(String(describing: item.celsius))")
                 print("item.weather=\(String(describing: item.weather))")
             }
-        
         
             XCTAssert(items != nil, "This search returned no data!")
             expectation.fulfill()
