@@ -10,6 +10,8 @@ import XCTest
 @testable import WeatherApp
 
 class WeatherAppTests: XCTestCase {
+    
+    let presenter:Presenter = Presenter()
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -19,9 +21,25 @@ class WeatherAppTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    /**
+     * test passes if your Service baseURL is valid and returns results
+     */
+    func testService() {
+        
+        let expectation:XCTestExpectation = XCTestExpectation()
+        
+        presenter.performSearch(callback:{ (data, error) -> Void in
+            
+            if error != nil {
+                XCTAssert(false, "There is an error, but with a valid URL there should be no error!")
+            }
+            
+            expectation.fulfill()
+            
+            print("data=\(data)")
+        })
+        
+        wait(for: [expectation], timeout: 10.0)
     }
 
     func testPerformanceExample() {
