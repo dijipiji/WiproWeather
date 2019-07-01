@@ -58,7 +58,31 @@ class Presenter: NSObject {
      *
      */
     func searchComplete(_ items:[DataItem]? = nil) {
+        guard let ownerVC = ownerVC else {
+            return
+        }
         
+        ownerVC.finishLoading()
+        
+        if items == nil {
+            ownerVC.renderNoResult()
+        } else {
+            ownerVC.renderResult(items)
+        } 
+    }
+    
+    /**
+     *
+     */
+    func attachVC(_ vc:ResultsView) {
+        ownerVC = vc
+    }
+    
+    /**
+     *
+     */
+    func detachVC() {
+        ownerVC = nil
     }
 }
 
@@ -69,5 +93,5 @@ protocol ResultsView: NSObjectProtocol {
     func startLoading()
     func finishLoading()
     func renderNoResult()
-    func renderResult()
+    func renderResult(_ dataItems:[DataItem]?)
 }

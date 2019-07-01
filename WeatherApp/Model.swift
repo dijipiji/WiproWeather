@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 typealias DataItem = (date:String?, kelvin:CGFloat?, weather:(type:String, description:String)?)
+typealias PrettifiedDate = (day:String, weekday:String, month:String)
 
 class Model: NSObject {
     
@@ -66,12 +67,30 @@ class Model: NSObject {
         guard let dateStr:String = YYYY_MM_DD else {
             return Date()
         }
+
+        let RFC3339DateFormatter = DateFormatter()
+        RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        RFC3339DateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         
-        let dateFormatter:DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        //dateFormatter.timeZone = TimeZone(identifier:"GMT")
+        let date:Date? = RFC3339DateFormatter.date(from: dateStr)
+        return date ?? Date()
+    }
+    
+    /**
+     *
+     */
+    func getPrettifiedDate(_ dateObj:Date) -> PrettifiedDate {
+
+        let calendar = Calendar.current
         
-        return dateFormatter.date(from: dateStr) ?? Date()
+        let day:Int = calendar.component(.day, from: dateObj)
+        let weekday:Int = calendar.component(.weekday, from: dateObj)
+        let month:Int = calendar.component(.month, from: dateObj)
+
+        let days:[String] = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+        let months:[String] = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"]
+        return PrettifiedDate(day:String(day), weekday:days[weekday-1], month:months[month-1])
     }
     
     

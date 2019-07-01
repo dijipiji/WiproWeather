@@ -36,7 +36,7 @@ class WeatherAppTests: XCTestCase {
             
             expectation.fulfill()
             
-            print("data=\(data)")
+            print("data=\(String(describing: data))")
             
         })
         
