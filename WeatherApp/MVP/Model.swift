@@ -52,7 +52,7 @@ class Model: NSObject {
                     
                     return DataItem(date:prettifiedDate,
                                     celsius:celsius,
-                                    weather:(type:weatherData["main"], weatherData["description"]) as! (type: String, description: String))
+                                    weather:(type:weatherData["main"], weatherData["description"]) as? (type: String, description: String))
                 }
                 
                 return filterItems(items)

@@ -114,11 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				A5E13CE922CA009800974179 /* AppDelegate.swift */,
-				A5E13CEB22CA009800974179 /* ViewController.swift */,
 				A5E13D2922CA58DE00974179 /* UIColor+Extension.swift */,
 				A5E13D1A22CA07CE00974179 /* Service.swift */,
-				A5E13D1C22CA085200974179 /* Presenter.swift */,
-				A5E13D1E22CA0FF700974179 /* Model.swift */,
+				A5E13D2B22CA5E1500974179 /* MVP */,
 				A5E13CED22CA009800974179 /* Main.storyboard */,
 				A5E13CF322CA009A00974179 /* Assets.xcassets */,
 				A5E13CF522CA009A00974179 /* LaunchScreen.storyboard */,
@@ -156,6 +154,16 @@
 			);
 			path = images;
 			sourceTree = SOURCE_ROOT;
+		};
+		A5E13D2B22CA5E1500974179 /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				A5E13D1E22CA0FF700974179 /* Model.swift */,
+				A5E13CEB22CA009800974179 /* ViewController.swift */,
+				A5E13D1C22CA085200974179 /* Presenter.swift */,
+			);
+			path = MVP;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -475,6 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2YVMKSPV72;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,6 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2YVMKSPV72;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
