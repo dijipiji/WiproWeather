@@ -10,6 +10,7 @@ import UIKit
 
 class Presenter: NSObject {
     
+    let model:Model = Model()
     var ownerVC:ResultsView?
     
     /**
@@ -25,6 +26,40 @@ class Presenter: NSObject {
         })
     }
 
+    /**
+     *
+     */
+    func parseSearch(_ data:Data?, _ error:Error?) -> [DataItem]? {
+        
+        guard let data:Data = data else {
+            return nil
+        }
+        
+        if data.count == 0 || error != nil {
+            
+            DispatchQueue.main.async {
+                self.searchComplete()
+            }
+            
+            return nil
+        }
+        
+        let items:[DataItem]? = model.parseJSONData(data)
+        
+        DispatchQueue.main.async {
+            self.searchComplete(items)
+        }
+        
+        return items
+        
+    }
+    
+    /**
+     *
+     */
+    func searchComplete(_ items:[DataItem]? = nil) {
+        
+    }
 }
 
 /**
