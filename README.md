@@ -14,9 +14,9 @@ Things I would want to acheive with more time:
 
 • more error checking and tests
 
-• more data sanitization and more defensive programming with some of the optionals and assumptions around those
+• more data sanitization and more defensive programming against some of the optionals and the assumptions around those
 
-• better filtering of the weather dataset against each day
+• better filtering of the weather dataset by the Model against each day
 
 • localization for text
 
